@@ -1,0 +1,46 @@
+span.c {
+    display: block;
+    width: 100px;
+    height: 100px;
+    padding: 0px;   
+    float: left;
+    background-color: black; 
+  }
+
+  span.b {
+    display: block;
+    width: 100px;
+    height: 100px;
+    padding: 0px;   
+    float: right;
+    background-color: black; 
+  }
+
+  span.a {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background:black;
+     width:100px; 
+     height: 100px;
+    padding: 0px;
+  }
+
+  span.d {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background:black;
+     width:100px; 
+     height: 100px;
+    padding: 0px;
+  }
+  
+  .center-block {
+    margin: auto;
+    display: block;
+    height: 50px;
+    margin-top: 250px;
+  }

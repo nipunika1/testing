@@ -1,0 +1,46 @@
+
+<div class="container">  
+    
+    
+      
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">  
+        
+      <div>  
+        <label for="phone">Phone Number:</label>  
+        <input type="text" id="phone" formControlName="phone" class="form-control"> 
+        <span *ngIf="productForm.controls.phone.invalid && productForm.controls.phone.dirty">
+            <p *ngIf="productForm.controls.phone.errors?.required" class="text-danger">This field is required!</p>
+            <p *ngIf="productForm.controls.phone.errors?.pattern" class="text-danger">Please enter a 10 digit number!</p>
+          
+        </span>  
+      </div>
+      
+      <table class="table table-bordered" formArrayName="quantities">  
+        <tr>  
+          <th colspan="2">Adding multiple numbers:</th>  
+          <th width="150px"><button type="button" (click)="addQuantity()" class="btn btn-primary">Add another phone number</button></th>  
+        </tr>  
+        <tr *ngFor="let quantity of quantities().controls; let i=index" [formGroupName]="i">  
+          <td>  
+              Another number :  
+              <input type="text" formControlName="phoneNumber" class="form-control">  
+              <span *ngIf="newQuantity().controls.phoneNumber.invalid && newQuantity().controls.phoneNumber.dirty">
+                <p *ngIf="newQuantity().controls.phoneNumber.errors?.required" class="text-danger">This field is required!</p>
+                <p *ngIf="newQuantity().controls.phoneNumber.errors?.pattern" class="text-danger">Please enter a 10 digit number!</p>
+              
+            </span>  
+          </td>  
+         
+          <td>  
+              <button (click)="removeQuantity(i)" class="btn btn-danger">Remove</button>  
+          </td>  
+        </tr>  
+      </table>  
+       <br>
+      <button type="submit" class="btn btn-info">Submit</button>  
+        
+    </form>  
+        
+    <br/>  
+    {{this.productForm.value | json}}  
+  </div>  
